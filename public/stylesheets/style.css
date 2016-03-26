@@ -13,14 +13,15 @@ a {
   background-color: #E8E8E8;
 }
 
-.mainCont{
+#mainCont{
   height: 300px;
   width: 100%;
 }
 
-.reviews{/*
+#reviews{
   width: 100%;
-  background-color: orange;*/
+  height: auto;
+  display: block;
 }
 
 #logo{
@@ -81,4 +82,24 @@ a {
 
 #album{
   font-size: 15px;
+}
+#critRevs{
+  width: 50%;
+  float: left;
+  padding-left: 25px;
+  font-size: 20px;
+}
+#emptyspot{
+  height: 20px;
+}
+#usrRevs{
+  padding-bottom: 20px;
+  width: 50%;
+  float: right;
+  font-size: 20px;
+}
+#review{
+  background-color: grey;
+  height: 120px;
+  width: 220px;
 }

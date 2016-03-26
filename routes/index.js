@@ -10,6 +10,10 @@ router.get('/', function (req, res) {
   res.render('index', { user : req.user });
 });
 
+router.get('/addalbum', function (req, res) {
+  res.render('addalbum', { user : req.user });
+});
+
 router.get('/register', function(req, res) {
   res.render('register', { });
 });
@@ -23,6 +27,20 @@ router.post('/register', function(req, res) {
     passport.authenticate('local')(req, res, function () {
       res.redirect('/');
     });
+  });
+});
+
+router.post('/create/artist', function(req, res) {
+  var newArtist = new Artist({name: req.body.name, image: req.body.image});
+  console.log(req.body.name);
+  newArtist.save(function(err) {
+    if (err){
+      throw err;
+    }else{
+      res.sendStatus(200);
+    }
+
+    console.log('Image created!');
   });
 });
 

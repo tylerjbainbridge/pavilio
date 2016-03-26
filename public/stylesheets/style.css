@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
 }
 
 #logPos{
@@ -23,7 +23,7 @@ a {
 .topNav{
   width: 100%;
   height: 50%;
-  background-color: #E8E8E8;
+  background-color: #000000;
 }
 
 #mainCont{
@@ -32,12 +32,14 @@ a {
 }
 
 #reviewSec{
+  text
   width: 100%;
   height: auto;
   display: block;
 }
 
 #logo{
+  color: white;
   padding-top: 10px;
   padding-left: 25px;
   font-size: 28px;
@@ -148,6 +150,9 @@ a {
 #emptyspot{
   height: 20px;
 }
+#usernameComment{
+  color: blue;
+}
 #usrRevs{
   padding-bottom: 20px;
   padding-top: 50px;
@@ -162,8 +167,9 @@ width: 100%;
   width: 80px;
 }
 #review{
-  background-color: #E8E8E8;
-  border: solid 10px #E8E8E8;
+  color: white;
+  background-color: #000000;
+  border: solid 10px #000000;
   height: auto;
   width: 70%;
 }

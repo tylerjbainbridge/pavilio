@@ -1,0 +1,15 @@
+extends layout
+block content
+  #logout 
+    a(href="/logout") Logout
+  .topNav
+    #logo PAVILLIO
+  #mainCont
+    #infoNav
+      #proPic
+        img(src= "#{user.propic}")
+      #artistInfo
+        #artistTitle #{user.username}
+  #albumList
+    #emptyspot
+    #largeText Album Reviews:

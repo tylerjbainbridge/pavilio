@@ -42,7 +42,12 @@ router.get('/album/:albumid', function (req, res) {
 router.get('/artist/:artistname', function (req, res) {
   Artist.findOne({shortname: req.params.artistname}, function(err, artist){
     if(artist){
-      res.render('artist', {artist: artist});
+      var albumMarkup = "";
+      for(var i=0; i<artist.albums.length; i++){
+        albumMarkup+="<a href=\"/album/" + artist.albums[i].id + "\">"  +
+            artist.albums[i].title + "</a><br>";
+      }
+      res.render('artist', {artist: artist, albums: albumMarkup});
       console.log(artist.shortname);
     }else{
       console.log("error");
@@ -92,10 +97,12 @@ router.post('/create/artist', function(req, res) {
 });
 
 router.post('/create/album', function(req, res) {
+  var shortname = req.body.album.replace(/\s/g, '');
+  shortname = shortname.toLowerCase();
   Artist.findOne({name: req.body.artist}, function (err, art) {
     if(art){
       console.log(art);
-      var newAlbum = new Album({title: req.body.album, artist: req.body.artist, image: req.body.image});
+      var newAlbum = new Album({title: req.body.album, artist: req.body.artist, image: req.body.image, shortname: shortname});
       newAlbum.save(function(err) {
         if (err) {
           throw err;

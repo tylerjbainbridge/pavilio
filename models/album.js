@@ -10,6 +10,7 @@ var Album = new Schema({
     artist: String,
     criticScore: String,
     userScore: String,
+    shortname: String,
     reviews: [Review],
     image: String,
     imageKey: String

@@ -4,9 +4,18 @@ block content
     #logo PAVILLIO
   if (!user)
     #emptyspot
-    a(href="/login") Login
-    br
-    a(href="/register") Register
+    #emptyspot
+    #emptyspot
+    #emptyspot
+    #emptyspot
+    #emptyspot
+    #emptyspot
+    #emptyspot
+    
+    #logPos
+      a(href="/login") Login
+      br
+      a(href="/register") Register
   if (user)
     p You are currently logged in as #{user.username}
     a(href="/logout") Logout

@@ -74,7 +74,7 @@ router.post('/register', function(req, res) {
     }
 
     passport.authenticate('local')(req, res, function () {
-      res.redirect('/');
+      res.render('profile', {user: req.user});
     });
   });
 });
@@ -123,6 +123,7 @@ router.post('/create/album', function(req, res) {
 
 router.get('/login', function(req, res) {
   res.render('login', { user : req.user });
+
 });
 
 router.get('/album/:albumName', function(req, res) {
@@ -130,7 +131,7 @@ router.get('/album/:albumName', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
-  res.redirect('/');
+  res.render('profile', {user: req.user});
 });
 
 router.get('/logout', function(req, res) {

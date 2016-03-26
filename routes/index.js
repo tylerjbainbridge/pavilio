@@ -42,6 +42,7 @@ router.get('/album/:albumid', function (req, res) {
 router.get('/artist/:artistname', function (req, res) {
   Artist.findOne({shortname: req.params.artistname}, function(err, artist){
     if(artist){
+      res.render('artist', {artist: artist});
       console.log(artist.shortname);
     }else{
       console.log("error");

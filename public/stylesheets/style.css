@@ -1,8 +1,79 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.topNav{
+
+}
+
+.reviews{
+  /*background-color: #D3D3D3;
+  border-radius: 25px;*/
+  height: 300px;
+  width: 150px;
+  display: block;
+  position: inherit;
+}
+
+#logo{
+  padding-top: 25px;
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+#albumArt{
+  width: 160px;
+  max-width: 40%;
+  height: 160px;
+  float: left;
+}
+
+#albumArt img{
+  display: inline;
+  float: left;
+  width: 160px;
+  height: 160px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+#smallSpace{
+  visibility: hidden;
+  padding-top: 30px;
+}
+
+#artistInfo{
+  padding-left: 25px;
+  vertical-align: bottom;
+  display: inline-block;
+  margin: auto;
+  float: left;
+  text-align: left;
+  /*background-color: yellow;*/
+  width: 60%;
+  height: 160px;
+  position:relative;
+}
+
+#infoNav{
+  position: absolute;
+  width: 80%;
+  float: left;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+#artist{
+  font-size: 20px;
+  padding-bottom: 25px;
+}
+
+#album{
+  font-size: 15px;
 }

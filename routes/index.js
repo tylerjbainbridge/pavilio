@@ -10,6 +10,10 @@ router.get('/', function (req, res) {
   res.render('index', { user : req.user });
 });
 
+router.get('/album', function (req, res) {
+  res.render('album', { user : req.user });
+});
+
 router.get('/addalbum', function (req, res) {
   res.render('addalbum', { user : req.user });
 });

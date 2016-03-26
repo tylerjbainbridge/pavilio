@@ -13,14 +13,15 @@ a {
   background-color: #E8E8E8;
 }
 
-.mainCont{
+#mainCont{
   height: 300px;
   width: 100%;
 }
 
-.reviews{/*
+#reviewSec{
   width: 100%;
-  background-color: orange;*/
+  height: auto;
+  display: block;
 }
 
 #logo{
@@ -67,11 +68,22 @@ a {
 }
 
 #infoNav{
-  position: absolute;
-  width: 80%;
+  display: block;
+  width: 60%;
   float: left;
   padding-left: 50px;
   padding-top: 50px;
+}
+
+#revScores{
+  display: block;
+  width: 30%;
+  float: right;
+}
+
+#largeText{
+  padding-left: 50px;
+  font-size: 30px;
 }
 
 #artist{
@@ -79,6 +91,32 @@ a {
   padding-bottom: 25px;
 }
 
+#artistTitle{
+  font-size: 50px;
+  padding-bottom: 25px;
+}
+
 #album{
   font-size: 15px;
+}
+#critRevs{
+  width: 50%;
+  float: left;
+  padding-left: 25px;
+  font-size: 20px;
+}
+#emptyspot{
+  height: 20px;
+}
+#usrRevs{
+  padding-bottom: 20px;
+  width: 50%;
+  float: right;
+  font-size: 20px;
+}
+#review{
+  background-color: #E8E8E8;
+  border: solid 10px #E8E8E8;
+  height: 120px;
+  width: 70%;
 }

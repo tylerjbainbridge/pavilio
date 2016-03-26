@@ -50,6 +50,10 @@ router.get('/artist/:artistname', function (req, res) {
   });
 });
 
+router.get('/artist', function (req, res) {
+  res.render('artist', { user : req.user });
+});
+
 router.get('/addalbum', function (req, res) {
   res.render('addalbum', { user : req.user });
 });

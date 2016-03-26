@@ -3,7 +3,7 @@
  */
 var reviewMarkup = "";
 for(var i = 0; i<album.reviews.length; i++){
-    reviewMarkup += "<p>" + album.reviews[i].writtenReview + "</p><br>" + "<p>"+ album.reviews[i].score +"/10</p>";
+    reviewMarkup += "<p>" + album.reviews[i].username + ": " + album.reviews[i].writtenReview + "</p>" + "<p>"+ album.reviews[i].score +"/10</p><br>";
 }
 
 $("#userreviews").html(reviewMarkup);

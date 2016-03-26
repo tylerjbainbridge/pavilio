@@ -155,9 +155,15 @@ a {
   float: right;
   font-size: 20px;
 }
+#reviewtextuser{
+width: 100%;
+}
+#reviewscoreuser{
+  width: 80px;
+}
 #review{
   background-color: #E8E8E8;
   border: solid 10px #E8E8E8;
-  height: 120px;
+  height: auto;
   width: 70%;
 }

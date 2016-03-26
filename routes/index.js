@@ -10,6 +10,10 @@ router.get('/', function (req, res) {
   res.render('index', { user : req.user });
 });
 
+router.get('/profile', function (req, res) {
+  res.render('profile', { user : req.user });
+});
+
 router.get('/addartist', function (req, res) {
   res.render('addartist', { user : req.user });
 });
@@ -64,7 +68,7 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-  Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
+  Account.register(new Account({ username : req.body.username, propic : req.body.propic }), req.body.password, function(err, account) {
     if (err) {
       return res.render('register', { account : account });
     }

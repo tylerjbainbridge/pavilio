@@ -5,11 +5,9 @@ block content
         h1 Add Album
         p.lead Create an Album
         br
-        form(role='form', action="/create/album",method="post", style='max-width: 300px;')
+        form(role='form', action="/create/artist",method="post", style='max-width: 300px;')
             .form-group
-                input.form-control(type='text', name="artist", value='#{artist}')
-            .form-group
-                input.form-control(type='text', name="album", placeholder='album name')
+                input.form-control(type='text', name="name", placeholder='Artist Name')
             .form-group
                 input.form-control(type='text', name="image", placeholder='URL')
             button.btn.btn-default(type='submit') Submit

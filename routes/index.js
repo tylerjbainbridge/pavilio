@@ -10,6 +10,10 @@ router.get('/', function (req, res) {
   res.render('index', { user : req.user });
 });
 
+router.get('/addartist', function (req, res) {
+  res.render('addartist', { user : req.user });
+});
+
 router.get('/addalbum', function (req, res) {
   res.render('addalbum', { user : req.user });
 });
@@ -37,10 +41,36 @@ router.post('/create/artist', function(req, res) {
     if (err){
       throw err;
     }else{
-      res.sendStatus(200);
+      res.render('addalbum', {artist: req.body.name});
     }
 
     console.log('Image created!');
+  });
+});
+
+router.post('/create/album', function(req, res) {
+  Artist.findOne({name: req.body.artist}, function (err, art) {
+    if(art){
+      console.log(art);
+      var newAlbum = new Album({title: req.body.album, artist: req.body.artist, image: req.body.image});
+      newAlbum.save(function(err) {
+        if (err) {
+          throw err;
+        } else {
+          res.sendStatus(200);
+        }
+      });
+      art.albums.push(newAlbum);
+      art.save(function(err) {
+        if (err){
+          throw err;
+        }else{
+          res.render('addalbum', {artist: art.artist});
+        }
+      });
+    }else{
+      console.log("error");
+    }
   });
 });
 

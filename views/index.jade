@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  if (!user)
+    h1 Pavilio
+    p.lead A Music Rating Application
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/logout") Logout

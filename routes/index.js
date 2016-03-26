@@ -10,8 +10,13 @@ router.get('/', function (req, res) {
   res.render('index', { user : req.user });
 });
 
+<<<<<<< HEAD
 router.get('/addartist', function (req, res) {
   res.render('addartist', { user : req.user });
+=======
+router.get('/album', function (req, res) {
+  res.render('album', { user : req.user });
+>>>>>>> a70caaac2b6d22fb249b3e547ef05a61de40f1fe
 });
 
 router.get('/addalbum', function (req, res) {

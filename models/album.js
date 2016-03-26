@@ -11,6 +11,7 @@ var Album = new Schema({
     criticScore: String,
     userScore: String,
     shortname: String,
+    artistshortname: String,
     reviews: [Review],
     image: String,
     imageKey: String

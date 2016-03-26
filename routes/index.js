@@ -3,6 +3,7 @@ var passport = require('passport');
 var Account = require('../models/account');
 var Artist = require('../models/artist');
 var Album = require('../models/album');
+var Review = require('../models/review');
 var router = express.Router();
 
 
@@ -31,7 +32,7 @@ router.get('/album/:albumid', function (req, res) {
   Album.findById(req.params.albumid, function(err, album){
     if(album){
       console.log(album.title);
-      res.render('album', { album : album });
+      res.render('album', { album : album});
     }else{
       console.log("error");
     }
@@ -96,13 +97,43 @@ router.post('/create/artist', function(req, res) {
   });
 });
 
+router.post('/review/:album', function(req, res){
+  Album.findOne({shortname: req.params.album}, function (err, alb) {
+    if (alb) {
+      var newReview = new Review({username: req.user.username,
+        albumid: alb.id,
+        score: req.body.score,
+        writtenReview: req.body.review});
+      newReview.save(function(err) {
+        if (err){
+          throw err;
+        }else{
+
+        }
+      });
+      alb.reviews.push(newReview);
+      alb.save(function(err) {
+        if (err){
+          throw err;
+        }else{
+          res.redirect('/album/' + alb.id);
+        }
+      });
+    }else{
+
+    }
+  });
+});
+
 router.post('/create/album', function(req, res) {
   var shortname = req.body.album.replace(/\s/g, '');
   shortname = shortname.toLowerCase();
+  //var artisthortname = req.body.artist.replace(/\s/g, '');
+  //artisthortname = shortname.toLowerCase();
   Artist.findOne({name: req.body.artist}, function (err, art) {
     if(art){
       console.log(art);
-      var newAlbum = new Album({title: req.body.album, artist: req.body.artist, image: req.body.image, shortname: shortname});
+      var newAlbum = new Album({title: req.body.album, artist: req.body.artist, artistshortname: art.shortname, image: req.body.image, shortname: shortname});
       newAlbum.save(function(err) {
         if (err) {
           throw err;

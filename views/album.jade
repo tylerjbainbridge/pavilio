@@ -7,7 +7,8 @@ block content
       #albumArt
         img(src= "#{album.image}")
       #artistInfo
-        #artist #{album.artist}
+        #artist
+          a(href="/artist/#{album.artistshortname}") #{album.artist}
         #album #{album.title}
     .reviews
   #reviews
@@ -17,3 +18,14 @@ block content
     #usrRevs User Reviews
       #emptyspot
       #review
+        #userreviews
+        form(role='form', action="/review/#{album.shortname}",method="post", style='max-width: 300px;')
+          .form-group
+            textarea.form-control(type='text', name="review", placeholder='review')
+          .form-group
+            input.form-control(type='text', name="score", placeholder='review')
+          button.btn.btn-default(type='submit') Submit
+        a(href='/')
+          button.btn.btn-primary(type="button") Cancel
+      script.
+        var album = !{JSON.stringify(album)};

@@ -11,5 +11,4 @@ var Review = new Schema({
     writtenReview: String
 });
 
-Review.plugin(random);
 module.exports = mongoose.model('Review', Review);

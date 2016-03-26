@@ -4,7 +4,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Review = require('./review').schema;
-var random = require('mongoose-simple-random');
 
 var Album = new Schema({
     title: String,
@@ -16,5 +15,4 @@ var Album = new Schema({
     imageKey: String
 });
 
-Album.plugin(random);
 module.exports = mongoose.model('Album', Album);

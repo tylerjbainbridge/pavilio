@@ -31,7 +31,6 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/album/:albumName', function(req, res) {
-  Album.find()
   res.render('login', { user : req.user });
 });
 

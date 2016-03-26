@@ -35,8 +35,13 @@ router.get('/allalbums', function (req, res){
 router.get('/album/:albumid', function (req, res) {
   Album.findById(req.params.albumid, function(err, album){
     if(album){
+      var totalScore = 0;
+      for(var i = 0; i<album.reviews.length; i++){
+        totalScore += album.reviews[i].score;
+      }
+      var average = totalScore/album.reviews.length;
       console.log(album.title);
-      res.render('album', { album : album});
+      res.render('album', { album : album, average: average});
     }else{
       console.log("error");
     }

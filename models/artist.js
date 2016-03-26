@@ -8,6 +8,7 @@ var album = require('./album').schema;
 var Artist = new Schema({
     name: String,
     image: String,
+    shortname: String,
     genre: [String],
     albums: [album]
 });

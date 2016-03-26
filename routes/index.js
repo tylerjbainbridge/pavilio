@@ -10,13 +10,44 @@ router.get('/', function (req, res) {
   res.render('index', { user : req.user });
 });
 
-<<<<<<< HEAD
 router.get('/addartist', function (req, res) {
   res.render('addartist', { user : req.user });
-=======
-router.get('/album', function (req, res) {
-  res.render('album', { user : req.user });
->>>>>>> a70caaac2b6d22fb249b3e547ef05a61de40f1fe
+});
+
+router.get('/allalbums', function (req, res){
+  Album.find({}, function (err, albums){
+    var albumMarkup = "";
+    for(var i=0; i<albums.length; i++){
+      albumMarkup+="<a href=\"/album/" + albums[i].id + "\">"  +
+              albums[i].title + "</a><br>";
+      console.log(albumMarkup);
+    }
+    res.render('allalbums', {albums: albumMarkup});
+    console.log(albums[0]);
+  });
+});
+
+router.get('/album/:albumid', function (req, res) {
+  Album.findById(req.params.albumid, function(err, album){
+    if(album){
+      console.log(album.title);
+      res.render('album', { album : album });
+    }else{
+      console.log("error");
+    }
+
+  });
+});
+
+router.get('/artist/:artistname', function (req, res) {
+  Artist.findOne({shortname: req.params.artistname}, function(err, artist){
+    if(artist){
+      console.log(artist.shortname);
+    }else{
+      console.log("error");
+    }
+
+  });
 });
 
 router.get('/addalbum', function (req, res) {
@@ -40,7 +71,9 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/create/artist', function(req, res) {
-  var newArtist = new Artist({name: req.body.name, image: req.body.image});
+  var shortname = req.body.name.replace(/\s/g, '');
+  shortname = shortname.toLowerCase();
+  var newArtist = new Artist({name: req.body.name, image: req.body.image, shortname: shortname});
   console.log(req.body.name);
   newArtist.save(function(err) {
     if (err){

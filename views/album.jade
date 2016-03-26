@@ -5,9 +5,9 @@ block content
   .mainCont
     #infoNav
       #albumArt
-        img(src= "/stylesheets/images/art.jpg")
+        img(src= "#{album.image}")
       #artistInfo
-        #artist Kanye West
-        #album My Beautiful Dark Twisted Fantasy
+        #artist #{album.artist}
+        #album #{album.title}
     .reviews
       
